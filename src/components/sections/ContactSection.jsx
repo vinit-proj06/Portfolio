@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, CheckCircle2, Github, Linkedin, Sparkles, Clock, Globe } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import confetti from 'canvas-confetti';
-import { resumeData } from '../data/resumeData';
+import { resumeData } from '../../data/resumeData';
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({

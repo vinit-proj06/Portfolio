@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FolderGit2, ExternalLink, Github, Sparkles, ArrowUpRight, Layers } from 'lucide-react';
-import { resumeData } from '../data/resumeData';
-import ProjectModal from './ProjectModal';
+import { resumeData } from '../../data/resumeData';
+import ProjectModal from '../common/ProjectModal';
 
 export default function ProjectsSection() {
   const [activeCategory, setActiveCategory] = useState('All');

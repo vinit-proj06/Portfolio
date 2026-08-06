@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Download, Mail, Sparkles, Code, Cpu, Database, Server, Terminal, ShieldCheck, CheckCircle2 } from 'lucide-react';
-import { resumeData } from '../data/resumeData';
+import { resumeData } from '../../data/resumeData';
 
 export default function HeroSection() {
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
@@ -146,9 +146,9 @@ export default function HeroSection() {
           >
             <div className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
               
-              {/* Outer Glowing Pulsing Rings */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-600 via-purple-600 to-emerald-500 opacity-20 blur-2xl animate-pulse-slow" />
-              <div className="absolute -inset-4 rounded-full border border-blue-500/20 animate-spin-slow" />
+              {/* Outer glow aligned with the portrait frame */}
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-blue-600 via-purple-600 to-emerald-500 opacity-20 blur-2xl animate-pulse-slow" />
+              <div className="absolute -inset-4 rounded-[2.5rem] border border-blue-500/20" />
 
               {/* Central Frame */}
               <div className="w-full h-full rounded-3xl overflow-hidden glass-panel border-2 border-slate-700/80 p-3 shadow-2xl relative group">
@@ -156,7 +156,7 @@ export default function HeroSection() {
                   <img
                     src={resumeData.personalInfo.avatar}
                     alt={resumeData.personalInfo.name}
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover object-[center_35%] group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0B1120] via-transparent to-transparent opacity-60" />
                   

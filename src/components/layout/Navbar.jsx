@@ -1,7 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sun, Moon, Menu, X, FileText, Sparkles, Terminal } from 'lucide-react';
-import { resumeData } from '../data/resumeData';
+import {
+  Sun,
+  Moon,
+  Menu,
+  X,
+  FileText,
+  UserRound,
+  BriefcaseBusiness,
+  Code2,
+  Award,
+  Github,
+  FolderGit2,
+  Mail
+} from 'lucide-react';
+import { resumeData } from '../../data/resumeData';
 
 export default function Navbar({ theme, toggleTheme }) {
   const [scrolled, setScrolled] = useState(false);
@@ -10,13 +23,13 @@ export default function Navbar({ theme, toggleTheme }) {
   const [scrollProgress, setScrollProgress] = useState(0);
 
   const navLinks = [
-    { name: 'About', href: '#about' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Education', href: '#education' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Services', href: '#services' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'About', href: '#about', icon: UserRound },
+    { name: 'Experience', href: '#experience', icon: BriefcaseBusiness },
+    { name: 'Skills', href: '#skills', icon: Code2 },
+    { name: 'Certs', href: '#certificates', icon: Award },
+    { name: 'GitHub', href: '#github', icon: Github },
+    { name: 'Projects', href: '#projects', icon: FolderGit2 },
+    { name: 'Contact', href: '#contact', icon: Mail },
   ];
 
   useEffect(() => {
@@ -28,7 +41,7 @@ export default function Navbar({ theme, toggleTheme }) {
       setScrolled(currentScroll > 40);
 
       // Section tracking
-      const sections = ['hero', 'about', 'experience', 'education', 'skills', 'projects', 'services', 'contact'];
+      const sections = ['hero', 'about', 'experience', 'skills', 'certificates', 'projects', 'github', 'contact'];
       for (const section of sections) {
         const el = document.getElementById(section);
         if (el) {
@@ -41,7 +54,8 @@ export default function Navbar({ theme, toggleTheme }) {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -56,14 +70,14 @@ export default function Navbar({ theme, toggleTheme }) {
       </div>
 
       <nav className={`transition-all duration-300 ${scrolled ? 'glass-panel py-3 shadow-xl border-b border-slate-800/60' : 'bg-transparent py-5'}`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4 xl:px-8 flex items-center justify-between">
           
           {/* Logo */}
           <a href="#hero" className="flex items-center gap-2 group">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold font-mono text-lg shadow-lg group-hover:scale-105 transition-transform">
               VP
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col lg:hidden xl:flex">
               <span className="font-bold text-slate-100 dark:text-slate-100 text-lg tracking-tight group-hover:text-blue-400 transition-colors">
                 Vinit Prajapati
               </span>
@@ -75,35 +89,39 @@ export default function Navbar({ theme, toggleTheme }) {
           </a>
 
           {/* Desktop Nav Items */}
-          <div className="hidden md:flex items-center gap-1 bg-slate-900/50 dark:bg-slate-900/80 p-1.5 rounded-full border border-slate-800/80 backdrop-blur-md">
+          <div className="hidden lg:flex items-center gap-1 p-1.5 rounded-full border border-slate-200/80 dark:border-purple-500/20 bg-white/75 dark:bg-[#160f35]/80 shadow-lg shadow-slate-900/5 dark:shadow-purple-950/30 backdrop-blur-xl">
             {navLinks.map((link) => {
-              const sectionId = link.href.replace('#', '');
-              const isActive = activeSection === sectionId;
+              const Icon = link.icon;
+              const sectionId = link.external ? null : link.href.replace('#', '');
+              const isActive = !link.external && activeSection === sectionId;
               return (
                 <a
                   key={link.name}
                   href={link.href}
-                  className={`px-4 py-2 rounded-full text-xs font-medium transition-all relative ${
+                  target={link.external ? '_blank' : undefined}
+                  rel={link.external ? 'noreferrer' : undefined}
+                  className={`relative isolate flex items-center gap-2 px-3.5 py-2.5 rounded-full text-[11px] font-bold uppercase tracking-wide transition-all duration-300 ${
                     isActive
-                      ? 'text-white font-semibold'
-                      : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+                      ? 'theme-inverse text-white shadow-[0_0_20px_rgba(99,102,241,0.35)]'
+                      : 'text-slate-500 hover:text-slate-900 hover:bg-slate-100/80 dark:text-slate-400 dark:hover:text-slate-100 dark:hover:bg-white/5'
                   }`}
                 >
                   {isActive && (
                     <motion.div
                       layoutId="activeTab"
-                      className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full -z-10 shadow-md"
+                      className="absolute inset-0 -z-10 rounded-full bg-gradient-to-r from-indigo-500 via-blue-500 to-cyan-400 ring-1 ring-white/20"
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}
-                  {link.name}
+                  <Icon className={`w-4 h-4 shrink-0 ${isActive ? 'text-white' : 'text-blue-500 dark:text-slate-400'}`} />
+                  <span>{link.name}</span>
                 </a>
               );
             })}
           </div>
 
           {/* Right Action Group */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-3">
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
@@ -127,7 +145,7 @@ export default function Navbar({ theme, toggleTheme }) {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex md:hidden items-center gap-2">
+          <div className="flex lg:hidden items-center gap-2">
             <button
               onClick={toggleTheme}
               className="p-2 rounded-full bg-slate-800/60 text-slate-300"
@@ -138,6 +156,9 @@ export default function Navbar({ theme, toggleTheme }) {
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2.5 rounded-xl bg-slate-800/80 text-slate-200 border border-slate-700/60"
+              aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-navigation"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -152,18 +173,32 @@ export default function Navbar({ theme, toggleTheme }) {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="md:hidden glass-panel border-b border-slate-800 px-6 py-6 space-y-3"
+            id="mobile-navigation"
+            className="lg:hidden glass-panel border-b border-slate-800 px-6 py-6 space-y-2"
           >
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="block px-4 py-3 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-colors"
-              >
-                {link.name}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const Icon = link.icon;
+              const sectionId = link.external ? null : link.href.replace('#', '');
+              const isActive = !link.external && activeSection === sectionId;
+
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  target={link.external ? '_blank' : undefined}
+                  rel={link.external ? 'noreferrer' : undefined}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all ${
+                    isActive
+                      ? 'theme-inverse text-white bg-gradient-to-r from-indigo-500 via-blue-500 to-cyan-400 shadow-lg shadow-blue-500/20'
+                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100 dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-800/60'
+                  }`}
+                >
+                  <Icon className="w-4 h-4 shrink-0" />
+                  <span>{link.name}</span>
+                </a>
+              );
+            })}
             <div className="pt-3 border-t border-slate-800">
               <a
                 href={resumeData.personalInfo.resumeUrl}

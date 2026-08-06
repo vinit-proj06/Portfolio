@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowUp, Github, Linkedin, Mail, Heart, FileText } from 'lucide-react';
-import { resumeData } from '../data/resumeData';
+import { resumeData } from '../../data/resumeData';
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -66,7 +66,6 @@ export default function Footer() {
               <a href="#education" className="hover:text-blue-400 transition-colors">Education</a>
               <a href="#skills" className="hover:text-blue-400 transition-colors">Skills</a>
               <a href="#projects" className="hover:text-blue-400 transition-colors">Projects</a>
-              <a href="#services" className="hover:text-blue-400 transition-colors">Services</a>
               <a href="#contact" className="hover:text-blue-400 transition-colors">Contact</a>
               <a
                 href={resumeData.personalInfo.resumeUrl}

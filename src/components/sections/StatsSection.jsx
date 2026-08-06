@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { FolderGit2, Briefcase, Code2, GraduationCap, Award } from 'lucide-react';
-import { resumeData } from '../data/resumeData';
+import { resumeData } from '../../data/resumeData';
 
 function AnimatedCounter({ value, suffix = '', decimals = 0 }) {
   const [count, setCount] = useState(0);

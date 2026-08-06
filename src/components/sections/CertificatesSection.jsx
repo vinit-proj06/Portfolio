@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Award, Trophy, BookOpen, ShieldCheck, Sparkles, CheckCircle2 } from 'lucide-react';
-import { resumeData } from '../data/resumeData';
+import { resumeData } from '../../data/resumeData';
 
 export default function CertificatesSection() {
   const icons = [
@@ -12,7 +12,7 @@ export default function CertificatesSection() {
   ];
 
   return (
-    <section className="py-24 relative z-10">
+    <section id="certificates" className="py-24 relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

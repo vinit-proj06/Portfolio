@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Code2, Layout, Server, Brain, Database, Wrench, Search, Sparkles } from 'lucide-react';
-import { resumeData } from '../data/resumeData';
+import { resumeData } from '../../data/resumeData';
 
 export default function SkillsSection() {
   const [activeCategory, setActiveCategory] = useState('all');

@@ -1,31 +1,35 @@
-import React, { useState, useEffect } from 'react';
-import ParticleCanvas from './components/ParticleCanvas';
-import CustomCursor from './components/CustomCursor';
-import Navbar from './components/Navbar';
-import HeroSection from './components/HeroSection';
-import AboutSection from './components/AboutSection';
-import StatsSection from './components/StatsSection';
-import ExperienceSection from './components/ExperienceSection';
-import EducationSection from './components/EducationSection';
-import SkillsSection from './components/SkillsSection';
-import ProjectsSection from './components/ProjectsSection';
-import CertificatesSection from './components/CertificatesSection';
-import ServicesSection from './components/ServicesSection';
-import TestimonialsSection from './components/TestimonialsSection';
-import ContactSection from './components/ContactSection';
-import Footer from './components/Footer';
+import React, { useLayoutEffect, useState } from 'react';
+import {
+  ParticleCanvas,
+  CustomCursor,
+  Navbar,
+  HeroSection,
+  AboutSection,
+  StatsSection,
+  ExperienceSection,
+  EducationSection,
+  SkillsSection,
+  ProjectsSection,
+  CertificatesSection,
+  GitHubContributionsSection,
+  ContactSection,
+  Footer
+} from './components';
 
 export default function App() {
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState(() => (
+    document.documentElement.classList.contains('light') ? 'light' : 'dark'
+  ));
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const root = document.documentElement;
-    if (theme === 'dark') {
-      root.classList.add('dark');
-      root.classList.remove('light');
-    } else {
-      root.classList.add('light');
-      root.classList.remove('dark');
+    root.classList.toggle('dark', theme === 'dark');
+    root.classList.toggle('light', theme === 'light');
+    root.style.colorScheme = theme;
+    try {
+      localStorage.setItem('portfolio-theme', theme);
+    } catch {
+      // The selected theme still applies when storage is unavailable.
     }
   }, [theme]);
 
@@ -35,16 +39,16 @@ export default function App() {
 
   return (
     <div className="min-h-screen relative overflow-x-hidden transition-colors duration-300">
-      {/* Background Interactive Particles */}
+      {/* Background Interactive Canvas */}
       <ParticleCanvas />
 
-      {/* Custom Magnetic Glow Cursor */}
+      {/* Custom Magnetic Follower Cursor */}
       <CustomCursor />
 
       {/* Glassmorphic Navigation Bar */}
       <Navbar theme={theme} toggleTheme={toggleTheme} />
 
-      {/* Core Portfolio Sections */}
+      {/* Portfolio Core Sections */}
       <main className="relative z-10 space-y-8">
         <HeroSection />
         <AboutSection />
@@ -54,12 +58,11 @@ export default function App() {
         <SkillsSection />
         <ProjectsSection />
         <CertificatesSection />
-        <ServicesSection />
-        <TestimonialsSection />
+        <GitHubContributionsSection />
         <ContactSection />
       </main>
 
-      {/* Footer */}
+      {/* Structural Footer */}
       <Footer />
     </div>
   );

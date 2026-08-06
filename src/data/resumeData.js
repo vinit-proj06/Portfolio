@@ -17,7 +17,7 @@ export const resumeData = {
     status: "Available for Full-time Roles & High-Impact Projects",
     github: "https://github.com/vinit-proj06",
     linkedin: "https://linkedin.com/in/vinit-prajapati",
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600",
+    avatar: "/Vinit_coat_.png",
     resumeUrl: "/vinit-prajapati-resume.pdf"
   },
   stats: [
@@ -296,58 +296,6 @@ export const resumeData = {
       date: "2025",
       badge: "Professional Certification",
       description: "Certified for completing production-ready web application development using React.js, Node.js, and MongoDB."
-    }
-  ],
-  services: [
-    {
-      title: "Full-Stack Web Development",
-      description: "Building fast, modern full-stack web applications using React.js, Node.js, Express, and MongoDB/MySQL tailored to business goals.",
-      icon: "Code2"
-    },
-    {
-      title: "AI & RAG System Integration",
-      description: "Integrating Gemini LLMs, Pinecone Vector Databases, spaCy NLP, and RAG architectures to automate document processing and knowledge search.",
-      icon: "Brain"
-    },
-    {
-      title: "Responsive UI/UX Engineering",
-      description: "Designing sleek, mobile-first interfaces with glassmorphic elements, smooth micro-interactions, and Framer Motion animations.",
-      icon: "Layout"
-    },
-    {
-      title: "REST API Architecture",
-      description: "Architecting secure, well-documented REST APIs and microservices in Node.js and FastAPI with strict input validation.",
-      icon: "Server"
-    },
-    {
-      title: "Database Design & Optimization",
-      description: "Designing schema structures, indexing strategies, and ORM query performance tuning for MongoDB and MySQL databases.",
-      icon: "Database"
-    },
-    {
-      title: "Data Analytics & BI Dashboards",
-      description: "Transforming raw operational data into actionable Power BI & Excel dashboards supported by optimized SQL backend scripts.",
-      icon: "BarChart3"
-    }
-  ],
-  testimonials: [
-    {
-      quote: "Vinit demonstrated extraordinary problem-solving skills during his internship. His ability to grasp complex MERN stack features and implement clean, maintainable React code was impressive.",
-      author: "Senior Technical Lead",
-      role: "Engineering Team, Cognifyz Technology",
-      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150"
-    },
-    {
-      quote: "Vinit's data documentation work and SQL analytics delivered actionable clarity for our municipal reporting processes. He combines technical precision with a solid work ethic.",
-      author: "Project Supervisor",
-      role: "Mira-Bhayander Municipal Corporation",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150"
-    },
-    {
-      quote: "As campus ambassador for E-Cell IIT Bombay, Vinit showed exceptional leadership and communication skills, significantly driving student participation in tech startup events.",
-      author: "E-Cell Coordinator",
-      role: "IIT Bombay Student Affairs",
-      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150"
     }
   ]
 };

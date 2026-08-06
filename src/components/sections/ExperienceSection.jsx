@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Briefcase, Calendar, MapPin, CheckCircle2, ChevronRight, Building2 } from 'lucide-react';
-import { resumeData } from '../data/resumeData';
+import { resumeData } from '../../data/resumeData';
 
 export default function ExperienceSection() {
   return (
