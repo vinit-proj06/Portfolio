@@ -56,9 +56,9 @@ export default function App() {
         <ExperienceSection />
         <EducationSection />
         <SkillsSection />
-        <ProjectsSection />
         <CertificatesSection />
         <GitHubContributionsSection />
+        <ProjectsSection />
         <ContactSection />
       </main>
 

@@ -5,6 +5,13 @@ import emailjs from '@emailjs/browser';
 import confetti from 'canvas-confetti';
 import { resumeData } from '../../data/resumeData';
 
+const CONTACT_EMAIL = 'vinit.praja689@gmail.com';
+const EMAILJS_CONFIG = {
+  serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID?.trim(),
+  templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID?.trim(),
+  publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY?.trim()
+};
+
 export default function ContactSection() {
   const [formData, setFormData] = useState({
     name: '',
@@ -34,18 +41,54 @@ export default function ContactSection() {
     setErrorMessage('');
 
     try {
-      // Attempt EmailJS send (if service parameters exist)
-      // Otherwise gracefully fallback to simulated email confirmation
-      await new Promise(resolve => setTimeout(resolve, 1200));
+      const { serviceId, templateId, publicKey } = EMAILJS_CONFIG;
+
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error('EMAILJS_NOT_CONFIGURED');
+      }
+
+      const senderName = formData.name.trim();
+      const senderEmail = formData.email.trim();
+      const subject = formData.subject.trim() || 'New portfolio contact inquiry';
+      const message = formData.message.trim();
+
+      const result = await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          to_name: 'Vinit Prajapati',
+          to_email: CONTACT_EMAIL,
+          from_name: senderName,
+          from_email: senderEmail,
+          reply_to: senderEmail,
+          subject,
+          message
+        },
+        {
+          publicKey,
+          limitRate: {
+            id: 'portfolio-contact-form',
+            throttle: 1000
+          }
+        }
+      );
+
+      if (result.status < 200 || result.status >= 300) {
+        throw new Error('EMAILJS_SEND_FAILED');
+      }
 
       setSubmitted(true);
-      setLoading(false);
       triggerConfetti();
-
       setFormData({ name: '', email: '', subject: '', message: '' });
-    } catch (err) {
+    } catch (error) {
+      setSubmitted(false);
+      setErrorMessage(
+        error instanceof Error && error.message === 'EMAILJS_NOT_CONFIGURED'
+          ? `Email delivery is not configured yet. Please email me directly at ${CONTACT_EMAIL}.`
+          : `Your message could not be sent right now. Please try again or email me directly at ${CONTACT_EMAIL}.`
+      );
+    } finally {
       setLoading(false);
-      setErrorMessage('Failed to dispatch message. Please send direct email to vinit.praja689@gmail.com');
     }
   };
 
@@ -79,20 +122,48 @@ export default function ContactSection() {
             className="lg:col-span-5 space-y-6"
           >
             {/* Status Card */}
-            <div className="glass-panel p-6 rounded-3xl border border-slate-800 space-y-4">
-              <div className="flex items-center gap-2">
-                <span className="relative flex h-3 w-3">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
-                </span>
-                <span className="font-bold text-white text-sm">Operational Status</span>
-              </div>
-              <p className="text-slate-300 text-xs leading-relaxed">
-                {resumeData.personalInfo.status}
-              </p>
-              <div className="flex items-center gap-2 text-slate-400 text-[11px] font-mono pt-2 border-t border-slate-800">
-                <Clock className="w-3.5 h-3.5 text-blue-400" />
-                <span>Response Time: Typically under 4 hours</span>
+            <div className="group relative h-36 overflow-hidden glass-panel p-4 rounded-3xl border border-slate-800/90 transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-0.5 hover:border-emerald-400/35 hover:shadow-[0_18px_45px_-26px_rgba(16,185,129,0.65)]">
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -right-10 -top-14 h-32 w-32 rounded-full bg-emerald-400/10 blur-3xl transition-opacity duration-300 group-hover:opacity-90"
+              />
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-px rounded-[22px] border border-white/[0.035]"
+              />
+
+              <div className="relative flex h-full flex-col">
+                <div className="flex items-center justify-between gap-3">
+                  <div className="flex min-w-0 items-center gap-2.5">
+                    <span className="relative flex h-3 w-3 shrink-0" aria-label="Online and available">
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-30" />
+                      <span className="relative inline-flex h-3 w-3 rounded-full border border-emerald-200/60 bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.65)]" />
+                    </span>
+                    <h3 className="truncate text-sm font-bold tracking-tight text-white">
+                      Operational Status
+                    </h3>
+                  </div>
+
+                  <span className="shrink-0 rounded-full border border-emerald-400/20 bg-emerald-400/[0.08] px-2 py-1 text-[8px] font-bold uppercase tracking-[0.18em] text-emerald-300">
+                    Online
+                  </span>
+                </div>
+
+                <p className="mt-2 text-[10px] leading-[14px] text-slate-300 sm:text-[11px] sm:leading-[15px]">
+                  Open to Full-Stack Development, AI/ML, Data Analytics Internships, Freelance Projects, and Startup Collaborations.
+                </p>
+
+                <div className="mt-auto flex items-center justify-between gap-3 rounded-xl border border-slate-700/60 bg-slate-950/35 px-3 py-1.5">
+                  <div className="flex min-w-0 items-center gap-2">
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-blue-400/15 bg-blue-400/[0.08]">
+                      <Clock className="h-3.5 w-3.5 text-blue-300" />
+                    </span>
+                    <span className="truncate text-[9px] font-mono uppercase tracking-[0.12em] text-slate-400">
+                      Typical response
+                    </span>
+                  </div>
+                  <span className="shrink-0 text-[10px] font-semibold text-slate-200">Under 4 hours</span>
+                </div>
               </div>
             </div>
 
