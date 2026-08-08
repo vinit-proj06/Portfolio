@@ -102,24 +102,29 @@ export default function SkillsSection() {
                 transition={{ duration: 0.3 }}
                 className="glass-panel p-5 rounded-2xl border border-slate-800 hover:border-blue-500/40 transition-all hover:scale-[1.02] group relative overflow-hidden"
               >
-                <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-blue-400 font-mono text-sm font-bold group-hover:scale-110 transition-transform">
+                <div className="flex items-center justify-between gap-3 mb-3">
+                  <div className="flex items-center gap-3 min-w-0">
+                    <div className="w-9 h-9 shrink-0 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-blue-400 font-mono text-sm font-bold group-hover:scale-110 transition-transform">
                       {skill.name.charAt(0)}
                     </div>
-                    <div>
-                      <h4 className="font-bold text-white text-sm group-hover:text-blue-400 transition-colors">
+                    <div className="min-w-0">
+                      <h4 className="font-bold text-white text-sm truncate group-hover:text-blue-400 transition-colors">
                         {skill.name}
                       </h4>
-                      <span className="text-[10px] font-mono text-slate-400 capitalize">
-                        {skill.category}
-                      </span>
+                      <p className="text-[10px] sm:text-[11px] leading-4 text-slate-400 truncate" title={skill.description}>
+                        {skill.description}
+                      </p>
                     </div>
                   </div>
 
-                  <span className="text-xs font-mono font-bold text-gradient-blue">
-                    {skill.level}%
-                  </span>
+                  <div className="shrink-0 text-right">
+                    <span className="block text-xs font-mono font-bold text-gradient-blue">
+                      {skill.level}%
+                    </span>
+                    <span className="block text-[10px] font-mono text-slate-400 capitalize">
+                      {skill.category}
+                    </span>
+                  </div>
                 </div>
 
                 {/* Progress Indicator */}

@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Award, Trophy, BookOpen, ShieldCheck, Sparkles, CheckCircle2 } from 'lucide-react';
+import { Award, Trophy, BookOpen, ShieldCheck, CheckCircle2, ExternalLink } from 'lucide-react';
 import { resumeData } from '../../data/resumeData';
+import { CERTIFICATE_LINKS } from '../../config/certificateLinks';
 
 export default function CertificatesSection() {
   const icons = [
@@ -33,7 +34,7 @@ export default function CertificatesSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {resumeData.certificates.map((cert, idx) => (
             <motion.div
-              key={idx}
+              key={cert.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -47,9 +48,11 @@ export default function CertificatesSection() {
                   <div className="p-3 rounded-2xl bg-slate-900 border border-slate-800 group-hover:scale-110 transition-transform">
                     {icons[idx % icons.length]}
                   </div>
-                  <span className="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-[10px] font-mono border border-slate-700">
-                    {cert.date}
-                  </span>
+                  {(cert.date || cert.duration) && (
+                    <span className="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-[10px] font-mono border border-slate-700">
+                      {cert.date || cert.duration}
+                    </span>
+                  )}
                 </div>
 
                 <span className="text-[11px] font-mono text-amber-400 tracking-wider uppercase font-semibold">
@@ -62,6 +65,9 @@ export default function CertificatesSection() {
 
                 <p className="text-slate-400 text-xs font-mono mb-3">
                   Issuer: {cert.issuer}
+                  {cert.issued && (
+                    <span className="block mt-1">Issued: {cert.issued}</span>
+                  )}
                 </p>
 
                 <p className="text-slate-300 text-xs leading-relaxed">
@@ -69,11 +75,21 @@ export default function CertificatesSection() {
                 </p>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-slate-800/60 flex items-center justify-between text-[11px] text-slate-400 font-mono">
+              <div className="mt-6 pt-4 border-t border-slate-800/60 flex items-center justify-between gap-3 text-[11px] text-slate-400 font-mono">
                 <span className="flex items-center gap-1">
                   <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
                   Verified Honor
                 </span>
+                <a
+                  href={CERTIFICATE_LINKS[cert.id]}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`View ${cert.title} certificate in a new tab`}
+                  className="relative z-10 inline-flex items-center gap-1.5 font-semibold text-amber-400 hover:text-amber-300 transition-colors whitespace-nowrap"
+                >
+                  View Certificate
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
               </div>
 
             </motion.div>

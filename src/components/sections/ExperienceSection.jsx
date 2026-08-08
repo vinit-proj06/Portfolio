@@ -18,7 +18,7 @@ export default function ExperienceSection() {
             Work <span className="text-gradient">Experience</span>
           </h2>
           <p className="text-slate-400 text-base">
-            Professional internships across Data Analytics, Full-Stack Web Development, and Leadership.
+            Professional internships across Full-Stack Web Development and Data Analytics.
           </p>
         </div>
 

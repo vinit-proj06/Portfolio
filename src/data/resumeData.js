@@ -24,8 +24,7 @@ export const resumeData = {
     { label: "Projects Completed", value: 4, suffix: "+", description: "Enterprise & Full-Stack Apps" },
     { label: "Internships", value: 3, suffix: "", description: "Data Analytics & Development" },
     { label: "Core Technologies", value: 15, suffix: "+", description: "Languages, AI & Web Frameworks" },
-    { label: "Academic CGPA", value: 9.24, suffix: "/10", description: "Viva Institute of Technology" },
-    { label: "Department Rank", value: 2, suffix: "nd", description: "First Year Engineering Distinction" }
+    { label: "Academic CGPA", value: 9.24, suffix: "/10", description: "Viva Institute of Technology" }
   ],
   about: {
     education: "B.Tech in Computer Science & Engineering at Viva Institute of Technology with an outstanding 9.24 CGPA.",
@@ -35,6 +34,38 @@ export const resumeData = {
     careerObjective: "Seeking a challenging Full-Stack / Software Engineering role at top tech product companies where I can contribute high-impact code, scale systems, and solve complex engineering problems."
   },
   experiences: [
+    {
+      company: "Digitrix Agency",
+      role: "Full Stack Developer",
+      period: "June 2026 – Present",
+      duration: "Intern · Full Time",
+      location: "Mumbai, India",
+      type: "Intern · Full Time",
+      logo: "DA",
+      description: "Developing and maintaining production-ready full-stack applications and live client platforms for Digitrix Agency.",
+      responsibilities: [
+        "Developed and maintained full-stack web applications using Next.js, TypeScript, React.js, Node.js, and MongoDB.",
+        "Worked on live client projects including HopeOf.com and CreateReceipt.com.",
+        "Built responsive UIs, integrated REST APIs, and optimized application performance."
+      ],
+      skills: ["Next.js", "TypeScript", "React.js", "Node.js", "MongoDB", "REST APIs"]
+    },
+    {
+      company: "Tiesverse Foundation",
+      role: "Tech Intern / Web Development Intern",
+      period: "April 2026 – July 2026",
+      duration: "15 April 2026 – 15 July 2026",
+      location: "Remote",
+      type: "Intern · Remote",
+      logo: "TF",
+      description: "Completed a three-month remote internship as a Tech Intern at Tiesverse Foundation with a focus on web development.",
+      responsibilities: [
+        "Completed the remote Tech Internship from 15 April 2026 to 15 July 2026.",
+        "Supported web development work as part of the Tiesverse Foundation internship program.",
+        "Collaborated remotely while completing assigned technical and web development responsibilities."
+      ],
+      skills: ["Web Development", "Tech Internship", "Remote Collaboration"]
+    },
     {
       company: "Mira-Bhayander Municipal Corporation",
       role: "Data Analytics Intern",
@@ -53,7 +84,7 @@ export const resumeData = {
     },
     {
       company: "Cognifyz Technology",
-      role: "Full Stack Intern",
+      role: "Full Stack Developer Intern",
       period: "June 2025 – July 2025",
       duration: "2 Months",
       location: "Remote",
@@ -68,7 +99,7 @@ export const resumeData = {
       skills: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS", "REST APIs"]
     },
     {
-      company: "CodeSoft IT",
+      company: "CodSoft",
       role: "Web Development Intern",
       period: "January 2025 – February 2025",
       duration: "2 Months",
@@ -82,22 +113,6 @@ export const resumeData = {
         "Optimized client asset loading and page render performance across mobile and desktop devices."
       ],
       skills: ["HTML5", "CSS3", "JavaScript", "React.js", "Responsive Design", "Performance Tuning"]
-    },
-    {
-      company: "E-Cell, IIT Bombay",
-      role: "Campus Ambassador",
-      period: "July 2025 – November 2025",
-      duration: "5 Months",
-      location: "Mumbai, MH",
-      type: "Campus Leadership",
-      logo: "IITB",
-      description: "Led institutional entrepreneurship promotion and student engagement for IIT Bombay's E-Cell events.",
-      responsibilities: [
-        "Promoted startup initiatives, innovation hackathons, and entrepreneurship bootcamps across campus.",
-        "Organized student leadership workshops resulting in a 40% increase in event participation.",
-        "Collaborated with student founders and industry mentors to foster an innovation-first culture."
-      ],
-      skills: ["Leadership", "Community Building", "Public Speaking", "Event Management", "Networking"]
     }
   ],
   education: [
@@ -107,9 +122,8 @@ export const resumeData = {
       period: "2023 – 2027",
       score: "9.24 / 10 CGPA",
       scoreLabel: "Academic CGPA",
-      badge: "Department Rank 2",
+      badge: "Academic Excellence",
       highlights: [
-        "Achieved Rank 2 in First Year CSE with 9.23 CGPA.",
         "Core Focus: Data Structures & Algorithms, Database Systems, Web Engineering, Machine Learning.",
         "Active member of Technical Research & Innovation Cell."
       ]
@@ -141,45 +155,45 @@ export const resumeData = {
   ],
   skills: {
     languages: [
-      { name: "JavaScript (ES6+)", level: 92, icon: "Code2" },
-      { name: "Python", level: 88, icon: "Terminal" },
-      { name: "SQL", level: 90, icon: "Database" },
-      { name: "C", level: 82, icon: "Cpu" },
-      { name: "TypeScript", level: 84, icon: "FileCode" },
-      { name: "Power BI DAX", level: 80, icon: "BarChart3" }
+      { name: "JavaScript (ES6+)", level: 92, icon: "Code2", description: "ES6+, Async/Await, Modern Web Development" },
+      { name: "Python", level: 88, icon: "Terminal", description: "AI/ML, Data Analysis, Automation" },
+      { name: "SQL", level: 90, icon: "Database", description: "Database Design, Queries, Data Analysis" },
+      { name: "C", level: 82, icon: "Cpu", description: "Data Structures, Algorithms, Problem Solving" },
+      { name: "TypeScript", level: 84, icon: "FileCode", description: "Type Safety, Scalable Apps, Maintainable Code" },
+      { name: "Power BI DAX", level: 80, icon: "BarChart3", description: "Data Modeling, Measures, Business Analytics" }
     ],
     frontend: [
-      { name: "React.js", level: 94, icon: "Layout" },
-      { name: "Tailwind CSS", level: 95, icon: "Palette" },
-      { name: "HTML5 & CSS3", level: 96, icon: "Globe" },
-      { name: "Bootstrap", level: 88, icon: "Layers" },
-      { name: "Vite", level: 90, icon: "Zap" }
+      { name: "React.js", level: 94, icon: "Layout", description: "Reusable Components, Hooks, Modern Frontends" },
+      { name: "Tailwind CSS", level: 95, icon: "Palette", description: "Responsive UI, Utility-First Styling" },
+      { name: "HTML5 & CSS3", level: 96, icon: "Globe", description: "Semantic HTML, Responsive Web Design" },
+      { name: "Bootstrap", level: 88, icon: "Layers", description: "Responsive Grids, UI Components, Prototyping" },
+      { name: "Vite", level: 90, icon: "Zap", description: "Fast Tooling, HMR, Optimized Builds" }
     ],
     backend: [
-      { name: "Node.js", level: 90, icon: "Server" },
-      { name: "Express.js", level: 88, icon: "Cpu" },
-      { name: "FastAPI", level: 82, icon: "Zap" },
-      { name: "RESTful APIs", level: 92, icon: "Network" },
-      { name: "Drizzle ORM", level: 80, icon: "Database" }
+      { name: "Node.js", level: 90, icon: "Server", description: "Server-Side JavaScript, APIs, Async Services" },
+      { name: "Express.js", level: 88, icon: "Cpu", description: "REST APIs, Middleware, Backend Routing" },
+      { name: "FastAPI", level: 82, icon: "Zap", description: "Python APIs, Validation, Async Backends" },
+      { name: "RESTful APIs", level: 92, icon: "Network", description: "API Design, CRUD, Service Integration" },
+      { name: "Drizzle ORM", level: 80, icon: "Database", description: "Type-Safe Queries, SQL Schemas, Migrations" }
     ],
     aiMl: [
-      { name: "RAG Architecture", level: 86, icon: "Brain" },
-      { name: "Gemini LLM Integration", level: 88, icon: "Sparkles" },
-      { name: "Pinecone Vector DB", level: 84, icon: "Compass" },
-      { name: "spaCy NLP", level: 82, icon: "Binary" },
-      { name: "NumPy & Pandas", level: 85, icon: "Table" },
-      { name: "Scikit-Learn", level: 80, icon: "Activity" }
+      { name: "RAG Architecture", level: 86, icon: "Brain", description: "Retrieval Pipelines, Grounded AI, Context Search" },
+      { name: "Gemini LLM Integration", level: 88, icon: "Sparkles", description: "Prompt Engineering, Generative AI, APIs" },
+      { name: "Pinecone Vector DB", level: 84, icon: "Compass", description: "Vector Search, Embeddings, Semantic Retrieval" },
+      { name: "spaCy NLP", level: 82, icon: "Binary", description: "Text Processing, Entity Extraction, NLP Pipelines" },
+      { name: "NumPy & Pandas", level: 85, icon: "Table", description: "Data Wrangling, Analysis, Numerical Computing" },
+      { name: "Scikit-Learn", level: 80, icon: "Activity", description: "ML Models, Feature Engineering, Evaluation" }
     ],
     databases: [
-      { name: "MongoDB", level: 90, icon: "Database" },
-      { name: "MySQL", level: 88, icon: "Server" }
+      { name: "MongoDB", level: 90, icon: "Database", description: "Document Modeling, Aggregation, Scalable Storage" },
+      { name: "MySQL", level: 88, icon: "Server", description: "Relational Schemas, Joins, Query Optimization" }
     ],
     tools: [
-      { name: "Git & GitHub", level: 92, icon: "GitBranch" },
-      { name: "VS Code", level: 95, icon: "Code" },
-      { name: "Postman API", level: 90, icon: "Send" },
-      { name: "Power BI Desktop", level: 85, icon: "PieChart" },
-      { name: "Jupyter Notebook", level: 86, icon: "BookOpen" }
+      { name: "Git & GitHub", level: 92, icon: "GitBranch", description: "Version Control, Collaboration, CI Workflows" },
+      { name: "VS Code", level: 95, icon: "Code", description: "Efficient Development, Debugging, Extensions" },
+      { name: "Postman API", level: 90, icon: "Send", description: "API Testing, Collections, Debugging" },
+      { name: "Power BI Desktop", level: 85, icon: "PieChart", description: "Dashboards, Data Visualization, Reporting" },
+      { name: "Jupyter Notebook", level: 86, icon: "BookOpen", description: "Interactive Analysis, Prototyping, Documentation" }
     ]
   },
   projects: [
@@ -270,32 +284,38 @@ export const resumeData = {
   ],
   certificates: [
     {
-      title: "College Academic Rank #2",
-      issuer: "Viva Institute of Technology",
-      date: "2024",
-      badge: "Academic Excellence",
-      description: "Secured Department Rank 2 in First Year Computer Science & Engineering with an overall 9.23 CGPA."
+      id: "cognifyzFullStack",
+      title: "Full Stack Development Internship",
+      issuer: "Cognifyz Technologies",
+      date: "June 2025 – July 2025",
+      badge: "Internship",
+      description: "Completed a Full Stack Development internship at Cognifyz Technologies, demonstrating skills in full-stack development, coordination, communication, and problem solving."
     },
     {
-      title: "Technical Paper Presentation on Explainable AI",
-      issuer: "National Engineering Tech Symposium",
-      date: "2025",
-      badge: "Research Publication",
-      description: "Presented research paper evaluating transparency, feature importance attribution, and interpretability frameworks in modern XAI models."
+      id: "codsoftWebDevelopment",
+      title: "Web Development Internship",
+      issuer: "CodSoft",
+      date: "Dec 2024 – Jan 2025",
+      badge: "Internship",
+      description: "Successfully completed a 4-week virtual Web Development internship at CodSoft with practical tasks and project contributions."
     },
     {
-      title: "E-Cell IIT Bombay Campus Ambassador",
-      issuer: "E-Cell, IIT Bombay",
-      date: "2025",
-      badge: "Leadership Award",
-      description: "Awarded recognition certificate for exceptional student engagement and organizing entrepreneurial initiatives across Maharashtra."
-    },
-    {
-      title: "Full Stack Web Development Certification",
-      issuer: "Cognifyz Technology",
-      date: "2025",
+      id: "udemyNodeBootcamp",
+      title: "Node.js, Express, MongoDB & More: The Complete Bootcamp",
+      issuer: "Udemy",
+      date: null,
+      duration: "42 Total Hours",
       badge: "Professional Certification",
-      description: "Certified for completing production-ready web application development using React.js, Node.js, and MongoDB."
+      description: "Completed the Node.js, Express, MongoDB and related backend development bootcamp."
+    },
+    {
+      id: "tiesverseWebInternship",
+      title: "Web developer Intern",
+      issuer: "Tiesverse Foundation",
+      date: "April 2026 – July 2026",
+      issued: "1 August 2026",
+      badge: "Internship",
+      description: "Successfully completed a 3-month remote internship as a Tech Intern at Tiesverse Foundation."
     }
   ]
 };
