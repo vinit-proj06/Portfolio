@@ -2,9 +2,8 @@ export const siteConfig = {
   name: "Vinit Prajapati",
   title: "Vinit Prajapati — Full-Stack Engineer & AI Specialist",
   description: "Portfolio of Vinit Prajapati: B.Tech CSE (9.24 CGPA), Full-Stack Developer, AI RAG Architect, and Data Analytics Specialist.",
-  // Add the final .me URL and social preview image after the domain is connected.
-  url: "",
-  ogImage: "",
+  url: "https://www.vinitprajapati.me",
+  ogImage: "https://www.vinitprajapati.me/vp-logo.png",
   links: {
     github: "https://github.com/vinit-proj06",
     linkedin: "https://linkedin.com/in/vinit-prajapati",
