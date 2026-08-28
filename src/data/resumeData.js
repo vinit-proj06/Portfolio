@@ -10,7 +10,7 @@ export const resumeData = {
       "B.Tech CSE Scholar (9.24 CGPA)"
     ],
     tagline: "Architecting scalable web platforms, RAG-powered AI systems, and decentralized blockchain solutions.",
-    bio: "Passionate Computer Science & Engineering undergrad with a 9.24/10 CGPA and a strong record in building high-performance full-stack web applications, AI-driven RAG solutions, and data analytics pipelines. Experienced across 3 technical internships, specializing in modern React ecosystems, Node.js microservices, and practical machine learning.",
+    bio: "Passionate Computer Science & Engineering undergrad with a 9.24/10 CGPA and a strong record in building high-performance full-stack web applications, AI-driven RAG solutions, and data analytics pipelines. Experienced across 5 technical internships, specializing in modern React ecosystems, Node.js microservices, and practical machine learning.",
     email: "vinit.praja689@gmail.com",
     phone: "+91 9156986261",
     location: "Virar / Mumbai Metropolitan Region, Maharashtra, India",
@@ -22,7 +22,7 @@ export const resumeData = {
   },
   stats: [
     { label: "Projects Completed", value: 4, suffix: "+", description: "Enterprise & Full-Stack Apps" },
-    { label: "Internships", value: 3, suffix: "", description: "Data Analytics & Development" },
+    { label: "Internships", value: 5, suffix: "", description: "Full-Stack, Tech & Analytics" },
     { label: "Core Technologies", value: 15, suffix: "+", description: "Languages, AI & Web Frameworks" },
     { label: "Academic CGPA", value: 9.24, suffix: "/10", description: "Viva Institute of Technology" }
   ],

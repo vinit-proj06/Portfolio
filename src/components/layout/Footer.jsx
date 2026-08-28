@@ -16,8 +16,16 @@ export default function Footer() {
           {/* Brand Info */}
           <div className="md:col-span-5 space-y-4">
             <div className="flex items-center gap-2">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold font-mono text-base">
-                VP
+              <div className="w-10 h-10 shrink-0 rounded-full overflow-hidden bg-white border border-blue-400/40 p-0.5 shadow-md shadow-blue-500/10">
+                <img
+                  src="/vp-logo.png"
+                  alt="Vinit Prajapati logo"
+                  width="40"
+                  height="40"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full rounded-full object-contain"
+                />
               </div>
               <span className="font-bold text-white text-lg tracking-tight">
                 Vinit Prajapati

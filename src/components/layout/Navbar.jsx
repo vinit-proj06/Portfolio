@@ -74,8 +74,14 @@ export default function Navbar({ theme, toggleTheme }) {
           
           {/* Logo */}
           <a href="#hero" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold font-mono text-lg shadow-lg group-hover:scale-105 transition-transform">
-              VP
+            <div className="w-11 h-11 shrink-0 rounded-full overflow-hidden bg-white border border-blue-400/50 p-0.5 shadow-lg shadow-blue-500/15 group-hover:border-cyan-300/80 group-hover:scale-105 transition-all duration-300">
+              <img
+                src="/vp-logo.png"
+                alt="Vinit Prajapati logo"
+                width="44"
+                height="44"
+                className="w-full h-full rounded-full object-contain"
+              />
             </div>
             <div className="flex flex-col lg:hidden xl:flex">
               <span className="font-bold text-slate-100 dark:text-slate-100 text-lg tracking-tight group-hover:text-blue-400 transition-colors">
@@ -125,7 +131,7 @@ export default function Navbar({ theme, toggleTheme }) {
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="p-2.5 rounded-full bg-slate-800/60 dark:bg-slate-800/80 text-slate-300 hover:text-white border border-slate-700/60 hover:border-blue-500/50 transition-all hover:scale-105"
+              className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-slate-800/60 dark:bg-slate-800/80 text-slate-300 hover:text-white border border-slate-700/60 hover:border-blue-500/50 transition-all hover:scale-105"
               aria-label="Toggle Theme"
             >
               {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-indigo-400" />}
@@ -137,9 +143,9 @@ export default function Navbar({ theme, toggleTheme }) {
               download="Vinit_Prajapati_Resume.pdf"
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white text-xs font-semibold shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 hover:scale-105 transition-all"
+              className="h-10 inline-flex items-center justify-center gap-2 px-5 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white text-xs font-bold whitespace-nowrap shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 hover:scale-105 transition-all"
             >
-              <FileText className="w-3.5 h-3.5" />
+              <FileText className="w-4 h-4" />
               <span>Resume</span>
             </a>
           </div>

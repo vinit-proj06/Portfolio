@@ -102,7 +102,7 @@ export default function HeroSection() {
               </div>
               <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900/60 border border-slate-800">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                <span>3 Technical Internships</span>
+                <span>5 Technical Internships</span>
               </div>
             </div>
 
